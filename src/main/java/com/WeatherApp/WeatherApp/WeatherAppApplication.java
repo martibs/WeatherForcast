@@ -19,7 +19,7 @@ public class WeatherAppApplication {
 
 		SpringApplication.run(WeatherAppApplication.class, args);
 
-		apiConnection.showWeatherDataForToday("45.343", "64.232");
+		apiConnection.transfereApiDataToString("45.343", "64.232");
 
 	}
 }

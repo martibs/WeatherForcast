@@ -1,5 +1,7 @@
 package com.WeatherApp.WeatherApp;
 
+import com.google.gson.Gson;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -10,7 +12,14 @@ public class ApiConnection {
 
     // Class that is delegated to the server in the Config -> WeatherAppConfig class
 
-    public String showWeatherDataForToday(String latitude, String longitude) throws IOException {
+    private StringBuilder stringBuilder;
+    private Model model;
+
+    public ApiConnection(){
+        stringBuilder = new StringBuilder();
+    }
+
+    public String transfereApiDataToString(String latitude, String longitude) throws IOException {
         String url = "https://api.met.no/weatherapi/locationforecast/1.9/?lat=" + latitude + "&lon=" + longitude;
 
         URLConnection connection = new URL(url).openConnection();
@@ -19,14 +28,22 @@ public class ApiConnection {
 
         BufferedReader buffer = new BufferedReader(new InputStreamReader(connection.getInputStream()));
 
-        StringBuilder stringBuilder = new StringBuilder();
         String line;
 
         while ((line = buffer.readLine()) != null) {
             stringBuilder.append(line);
         }
 
+        buildModel();
+
         System.out.println(stringBuilder.toString());
         return "";
     }
+
+    private void buildModel(){
+        Gson gson = new Gson();
+        model = gson.fromJson(stringBuilder.toString(), Model.class);
+
+    }
+
 }
