@@ -11,7 +11,7 @@ public class WeatherAppApplication {
 	// The server
 
 	public static void main(String[] args) {
-		ApplicationContext ctx = new AnnotationConfigApplicationContext(HelloSpringConfig.class);
+		ApplicationContext ctx = new AnnotationConfigApplicationContext(WeatherAppConfig.class);
 		HelloWorld helloWorld = ctx.getBean(HelloWorld.class);
 		helloWorld.sayHello();
 

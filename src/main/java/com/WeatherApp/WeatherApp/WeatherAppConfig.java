@@ -7,7 +7,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 
 @Configuration
-public class HelloSpringConfig {
+public class WeatherAppConfig {
 
     @Bean
     public HelloWorld helloWorld(){
