@@ -1,8 +1,10 @@
 package com.WeatherApp.WeatherApp;
 
 import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 
 import java.io.BufferedReader;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -40,7 +42,8 @@ public class ApiConnection {
         return "";
     }
 
-    private void buildModel(){
+    private void buildModel() throws IOException {
+
         Gson gson = new Gson();
         model = gson.fromJson(stringBuilder.toString(), Model.class);
 
