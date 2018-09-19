@@ -10,9 +10,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WeatherAppConfig {
 
     @Bean
-    public HelloWorld helloWorld(){
-
-        return new HelloWorld();
+    public ApiConnection apiConnection(){
+        return new ApiConnection();
     }
 
     @Bean
