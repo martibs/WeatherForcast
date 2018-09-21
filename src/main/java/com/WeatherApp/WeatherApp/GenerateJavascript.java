@@ -2,14 +2,21 @@ package com.WeatherApp.WeatherApp;
 
 public class GenerateJavascript {
 
-    public String map(String osloIcon, String stavangerIcon, String bergenIcon, String tromsøIcon, String trondheimIcon) {
+    public String map(String osloIcon, String stavangerIcon, String bergenIcon, String tromsøIcon, String trondheimIcon, String osloTemp, String stavangerTemp, String bergenTemp, String tromsøTemp, String trondheimTemp) {
         String variable =
                 "<html>" +
                         "<head>" +
                         "<style>\n" +
+                        "      #temp {\n" +
+                        "        height: 85%;\n" +
+                        "        width: 49%;\n" +
+                        "        float: left;\n" +
+                        "\n" +
+                        "      }\n" +
                         "      #map {\n" +
-                        "        height: 75%;\n" +
-                        "        width: 50%;\n" +
+                        "        height: 85%;\n" +
+                        "        width: 49%;\n" +
+                        "        float: left;\n" +
                         "\n" +
                         "      }\n" +
                         "      html, body {\n" +
@@ -20,16 +27,26 @@ public class GenerateJavascript {
                         "      }\n" +
                         "    </style>"+
                         "</head>" +
-                            "<body>" +
+                        "  <body>" +
+                        "  <h1>Weather Forcast</h1>" +
                         "<div id=\"map\"></div>"+
+                        "<div id=\"temp\">" +
+                        "<p>Forcast for today: " +
+                        "Oslo: "+ osloTemp +
+                        "Oslo: "+ stavangerTemp +
+                        "Oslo: "+ bergenTemp +
+                        "Oslo: "+ tromsøTemp +
+                        "Oslo: "+ trondheimTemp +
+                        "</p>" +
+                        "</div>"+
 
                 "<script>\n" +
                         "\n" +
                         "      var map;\n" +
                         "      function initMap() {\n" +
                         "        map = new google.maps.Map(document.getElementById('map'), {\n" +
-                        "          zoom: 10,\n" +
-                        "          center: new google.maps.LatLng(59.911491, 10.757933),\n" +
+                        "          zoom: 5,\n" +
+                        "          center: new google.maps.LatLng(63.446827, 10.421906),\n" +
                         "          mapTypeId: 'roadmap'\n" +
                         "        });\n" +
                         "\n" +
