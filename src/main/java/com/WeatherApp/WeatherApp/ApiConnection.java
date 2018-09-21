@@ -1,10 +1,10 @@
 package com.WeatherApp.WeatherApp;
 
-import com.google.gson.Gson;
-import com.google.gson.JsonObject;
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.XML;
 
 import java.io.BufferedReader;
-import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.URL;
@@ -14,14 +14,13 @@ public class ApiConnection {
 
     // Class that is delegated to the server in the Config -> WeatherAppConfig class
 
-    private StringBuilder stringBuilder;
     private Model model;
 
     public ApiConnection(){
-        stringBuilder = new StringBuilder();
+
     }
 
-    public String transfereApiDataToString(String latitude, String longitude) throws IOException {
+    public JSONObject getApiDataFromApiMet(String latitude, String longitude) throws IOException {
         String url = "https://api.met.no/weatherapi/locationforecast/1.9/?lat=" + latitude + "&lon=" + longitude;
 
         URLConnection connection = new URL(url).openConnection();
@@ -32,21 +31,49 @@ public class ApiConnection {
 
         String line;
 
+        StringBuilder stringBuilder;
+        stringBuilder = new StringBuilder();
+
         while ((line = buffer.readLine()) != null) {
             stringBuilder.append(line);
         }
 
-        buildModel();
+        JSONObject jsondata = XML.toJSONObject(stringBuilder.toString());
+        return jsondata;
+    }
+    
+    public Double getTemperature(JSONObject jsondata){
 
-        System.out.println(stringBuilder.toString());
-        return "";
+        jsondata = (JSONObject) jsondata.get("weatherdata");
+        jsondata = (JSONObject) jsondata.get("product");
+
+        JSONArray array = jsondata.getJSONArray("time");
+
+        jsondata = array.getJSONObject(0);
+        jsondata = (JSONObject) jsondata.get("location");
+        jsondata = (JSONObject) jsondata.get("temperature");
+        Double value = (Double) jsondata.get("value");
+
+        System.out.println(value);
+        return value;
     }
 
-    private void buildModel() throws IOException {
+    public String getSymbol(JSONObject jsondata){
+        jsondata = (JSONObject) jsondata.get("weatherdata");
+        jsondata = (JSONObject) jsondata.get("product");
 
-        Gson gson = new Gson();
-        model = gson.fromJson(stringBuilder.toString(), Model.class);
+        JSONArray array = jsondata.getJSONArray("time");
 
+        jsondata = array.getJSONObject(1);
+        jsondata = (JSONObject) jsondata.get("location");
+        jsondata = (JSONObject) jsondata.get("symbol");
+        String symbol = (String) jsondata.get("id");
+
+
+        System.out.println(symbol);
+        return symbol;
     }
+
+
 
 }
