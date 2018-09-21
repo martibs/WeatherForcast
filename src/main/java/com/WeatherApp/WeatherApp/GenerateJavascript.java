@@ -2,8 +2,7 @@ package com.WeatherApp.WeatherApp;
 
 public class GenerateJavascript {
 
-    public static void map() {
-
+    public String map(String osloIcon, String stavangerIcon, String bergenIcon, String tromsøIcon, String trondheimIcon) {
         String variable =
                 "<script>\n" +
                         "\n" +
@@ -31,19 +30,19 @@ public class GenerateJavascript {
                         "        var features = [\n" +
                         "          {\n" +
                         "            position: new google.maps.LatLng(59.911491, 10.757933),\n" +
-                        "            type: 'info'\n" +
+                        "            type: '"+osloIcon+"' \n" +
                         "          },  {\n" +
                         "            position: new google.maps.LatLng(60.39299, 5.32415),\n" +
-                        "            type: 'info'\n" +
+                        "            type: '"+bergenIcon+"'\n" +
                         "          },  {\n" +
                         "            position: new google.maps.LatLng(63.446827, 10.421906),\n" +
-                        "            type: 'info'\n" +
+                        "            type: '"+trondheimIcon+"'\n" +
                         "          }, {\n" +
                         "            position: new google.maps.LatLng( 69.649208, 18.955324),\n" +
-                        "            type: 'info'\n" +
+                        "            type: '"+tromsøIcon+"'\n" +
                         "          }, {\n" +
                         "            position: new google.maps.LatLng(58.969975, 5.733107),\n" +
-                        "            type: 'info'\n" +
+                        "            type: '"+stavangerIcon+"'\n" +
                         "          },  {\n" +
                         "            position: new google.maps.LatLng(59.911491, 10.777933),\n" +
                         "            type: 'parking'\n" +
@@ -63,8 +62,7 @@ public class GenerateJavascript {
                         "        });\n" +
                         "      }\n" +
                         "    </script>";
-
-
+                return variable;
     }
 
 }
