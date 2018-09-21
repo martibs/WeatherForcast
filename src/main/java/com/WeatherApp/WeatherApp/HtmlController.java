@@ -33,10 +33,10 @@ public class HtmlController {
         String stavangerIcon = weatherData.getSymbol(stavanger);
 
         String osloTemp = weatherData.getTemperature(oslo);
-        String bergenTemp = weatherData.getTemperature(oslo);
-        String trondheimTemp = weatherData.getTemperature(oslo);
-        String tromsoTemp = weatherData.getTemperature(oslo);
-        String stavangerTemp = weatherData.getTemperature(oslo);
+        String bergenTemp = weatherData.getTemperature(bergen);
+        String trondheimTemp = weatherData.getTemperature(trondheim);
+        String tromsoTemp = weatherData.getTemperature(tromso);
+        String stavangerTemp = weatherData.getTemperature(stavanger);
 
 
 
