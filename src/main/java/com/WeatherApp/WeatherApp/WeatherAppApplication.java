@@ -19,7 +19,8 @@ public class WeatherAppApplication {
 
 		SpringApplication.run(WeatherAppApplication.class, args);
 
-		apiConnection.transfereApiDataToString("45.343", "64.232");
-
+		//apiConnection.transfereApiDataToString("45.343", "64.232");
+		Logic logic = new Logic();
+		logic.maplink();
 	}
 }

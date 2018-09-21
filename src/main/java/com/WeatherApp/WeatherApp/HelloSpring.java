@@ -10,7 +10,8 @@ public class HelloSpring {
     public static void main(String[] args) throws IOException {
         ApplicationContext ctx = new AnnotationConfigApplicationContext(WeatherAppConfig.class);
         ApiConnection apiConnection = ctx.getBean(ApiConnection.class);
-        apiConnection.transfereApiDataToString("45.353", "53.327");
+        //apiConnection.transfereApiDataToString("45.353", "53.327");
+
     }
 
 
