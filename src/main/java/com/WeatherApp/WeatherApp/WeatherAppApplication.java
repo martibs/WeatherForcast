@@ -20,11 +20,12 @@ public class WeatherAppApplication {
 
 		SpringApplication.run(WeatherAppApplication.class, args);
 
-		JSONObject oslo = apiConnection.getApiDataFromApiMet("45.343", "64.232");
-		apiConnection.getTemperature(oslo);
-		apiConnection.getSymbol(oslo);
+		WeatherData weatherData = new WeatherData();
 
-		//apiConnection.transfereApiDataToString("45.343", "64.232");
+		JSONObject oslo = apiConnection.getApiDataFromApiMet("45.343", "64.232");
+		weatherData.getSymbol(oslo);
+		weatherData.getTemperature(oslo);
+
 		Logic logic = new Logic();
 		logic.maplink();
 	}
