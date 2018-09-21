@@ -6,12 +6,15 @@
     <h1>Weather App</h1>
     <style>
       #map {
-        height: 100%;
+        height: 75%;
+        width: 50%;
+
       }
       html, body {
         height: 100%;
         margin: 0;
-        padding: 0;
+        padding-top: 0%;
+        padding-left: 1%;
       }
     </style>
 
@@ -34,41 +37,35 @@
           mapTypeId: 'roadmap'
         });
 
-        var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/';
+        var iconBase = 'https://api.met.no/weatherapi/weathericon/1.1?content_type=image%2Fpng&symbol=';
         var icons = {
-          parking: {
-            icon: iconBase + 'parking_lot_maps.png'
+          sol: {
+            icon: iconBase + '1'
           },
-          library: {
-            icon: iconBase + 'library_maps.png'
+          regn: {
+            icon: iconBase + '10'
           },
-          info: {
-            icon: iconBase + 'info-i_maps.png'
+          sno: {
+            icon: iconBase + '50'
           }
         };
 
         var features = [
           {
             position: new google.maps.LatLng(59.911491, 10.757933),
-            type: 'info'
+            type: 'sno'
           },  {
-            position: new google.maps.LatLng(59.911491, 10.757933),
-            type: 'info'
+            position: new google.maps.LatLng(60.39299, 5.32415),
+            type: 'regn'
           },  {
-            position: new google.maps.LatLng(59.911491, 10.757933),
-            type: 'info'
+            position: new google.maps.LatLng(63.446827, 10.421906),
+            type: 'sol'
           }, {
-            position: new google.maps.LatLng(59.911491, 10.757933),
-            type: 'info'
+            position: new google.maps.LatLng( 69.649208, 18.955324),
+            type: 'sol'
           }, {
-            position: new google.maps.LatLng(59.911491, 10.757933),
-            type: 'info'
-          },  {
-            position: new google.maps.LatLng(59.911491, 10.777933),
-            type: 'parking'
-          }, {
-            position: new google.maps.LatLng(-33.91727341958453, 151.23348314155578),
-            type: 'library'
+            position: new google.maps.LatLng(58.969975, 5.733107),
+            type: 'sol'
           }
         ];
 
