@@ -24,5 +24,8 @@ public class WeatherAppApplication {
 		apiConnection.getTemperature(oslo);
 		apiConnection.getSymbol(oslo);
 
+		//apiConnection.transfereApiDataToString("45.343", "64.232");
+		Logic logic = new Logic();
+		logic.maplink();
 	}
 }
