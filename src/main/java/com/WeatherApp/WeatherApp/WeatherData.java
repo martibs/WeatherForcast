@@ -5,9 +5,7 @@ import org.json.JSONObject;
 
 public class WeatherData {
 
-    ApiConnection apiConnection;
-
-    public Double getTemperature(JSONObject jsondata){
+    public String getTemperature(JSONObject jsondata){
 
         jsondata = (JSONObject) jsondata.get("weatherdata");
         jsondata = (JSONObject) jsondata.get("product");
@@ -20,7 +18,7 @@ public class WeatherData {
         Double value = (Double) jsondata.get("value");
 
         System.out.println(value);
-        return value;
+        return value.toString();
     }
 
     public String getSymbol(JSONObject jsondata){
@@ -33,6 +31,21 @@ public class WeatherData {
         jsondata = (JSONObject) jsondata.get("location");
         jsondata = (JSONObject) jsondata.get("symbol");
         String symbol = (String) jsondata.get("id");
+
+        /*
+        Rain
+        Drizzle
+        LightRain
+
+        DrizzleSun
+        LightRainSun
+
+        PartlyCloud
+        Cloud
+        LightCloud
+
+        Sun
+         */
 
 
         System.out.println(symbol);

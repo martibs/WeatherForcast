@@ -22,11 +22,9 @@ public class WeatherAppApplication {
 
 		WeatherData weatherData = new WeatherData();
 
-		JSONObject oslo = apiConnection.getApiDataFromApiMet("45.343", "64.232");
+		JSONObject oslo = apiConnection.getApiDataFromApiMet("59.911491", "10.757933");
 		weatherData.getSymbol(oslo);
 		weatherData.getTemperature(oslo);
 
-		Logic logic = new Logic();
-		logic.maplink();
 	}
 }
