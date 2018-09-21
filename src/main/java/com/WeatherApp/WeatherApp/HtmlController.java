@@ -12,9 +12,9 @@ import java.io.IOException;
 public class HtmlController {
 
 
-    GenerateJavascript generateJavascript = new GenerateJavascript();
-    ApiConnection apiConnection = new ApiConnection();
-    WeatherData weatherData = new WeatherData();
+    private GenerateJavascript generateJavascript = new GenerateJavascript();
+    private ApiConnection apiConnection = new ApiConnection();
+    private WeatherData weatherData = new WeatherData();
 
     @GetMapping
     public String getGreet() throws IOException {
@@ -32,7 +32,16 @@ public class HtmlController {
         String tromsoIcon = weatherData.getSymbol(tromso);
         String stavangerIcon = weatherData.getSymbol(stavanger);
 
-        String stuff = generateJavascript.map(osloIcon, bergenIcon, trondheimIcon, tromsoIcon, stavangerIcon);
+        String osloTemp = weatherData.getTemperature(oslo);
+        String bergenTemp = weatherData.getTemperature(oslo);
+        String trondheimTemp = weatherData.getTemperature(oslo);
+        String tromsoTemp = weatherData.getTemperature(oslo);
+        String stavangerTemp = weatherData.getTemperature(oslo);
+
+
+
+
+        String stuff = generateJavascript.map(osloIcon, stavangerIcon, bergenIcon, tromsoIcon, trondheimIcon, osloTemp, stavangerTemp, bergenTemp, tromsoTemp, trondheimTemp);
 
 
         return stuff;
