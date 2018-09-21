@@ -37,8 +37,12 @@ public class WeatherAppApplication {
 		String tromsoIcon = weatherData.getSymbol(tromso);
 		String stavangerIcon = weatherData.getSymbol(stavanger);
 
+		System.out.println("Data for today: ");
+		//weatherData.getSymbol(oslo);
+		weatherData.getTemperature(oslo);
 
-		System.out.println(generateJavascript.map(osloIcon, bergenIcon, trondheimIcon, tromsoIcon, stavangerIcon));
-
+		System.out.println("Date for tommorow: ");
+		// weatherData.getSymbolForTommorow(oslo);
+		weatherData.getTemperatureForTommorow(oslo);
 	}
 }
