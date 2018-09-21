@@ -1,5 +1,6 @@
 package com.WeatherApp.WeatherApp;
 
+import org.json.JSONObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -18,6 +19,10 @@ public class WeatherAppApplication {
 		ApiConnection apiConnection = ctx.getBean(ApiConnection.class);
 
 		SpringApplication.run(WeatherAppApplication.class, args);
+
+		JSONObject oslo = apiConnection.getApiDataFromApiMet("45.343", "64.232");
+		apiConnection.getTemperature(oslo);
+		apiConnection.getSymbol(oslo);
 
 		//apiConnection.transfereApiDataToString("45.343", "64.232");
 		Logic logic = new Logic();
