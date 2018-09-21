@@ -31,12 +31,12 @@ public class GenerateJavascript {
                         "  <h1>Weather Forcast</h1>" +
                         "<div id=\"map\"></div>"+
                         "<div id=\"temp\">" +
-                        "<p>Forcast for today: " +
-                        "Oslo: "+ osloTemp +
-                        "Oslo: "+ stavangerTemp +
-                        "Oslo: "+ bergenTemp +
-                        "Oslo: "+ tromsøTemp +
-                        "Oslo: "+ trondheimTemp +
+                        "<p>Forcast for today: " + "</p>" +
+                        "<p>Oslo: "+ osloTemp + "</p>" +
+                        "<p>Stavanger: "+ stavangerTemp + "</p>" +
+                        "<p>Bergen: "+ bergenTemp + "</p>" +
+                        "<p>Tromsø: "+ tromsøTemp + "</p>" +
+                        "<p>Trondheim: "+ trondheimTemp +
                         "</p>" +
                         "</div>"+
 
