@@ -1,13 +1,15 @@
 package com.WeatherApp.WeatherApp;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class WeatherData {
 
-    public String getTemperature(JSONObject jsondata){
+    public String getTemperature(JSONObject jsondata) throws JSONException {
         jsondata = (JSONObject) jsondata.get("weatherdata");
         jsondata = (JSONObject) jsondata.get("product");
 
@@ -22,7 +24,7 @@ public class WeatherData {
         return value.toString();
     }
 
-    public String getSymbol(JSONObject jsondata){
+    public String getSymbol(JSONObject jsondata) throws JSONException {
         jsondata = (JSONObject) jsondata.get("weatherdata");
         jsondata = (JSONObject) jsondata.get("product");
 
@@ -37,14 +39,9 @@ public class WeatherData {
         return symbol;
     }
 
-    public String getTemperatureForTommorow(JSONObject jsondata){
-/*
-        Date date = new Date();
+    public String getTemperatureForTommorow(JSONObject jsondata) throws JSONException {
 
-        String pattern = "yyyy-MM-dd";
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
-        String date = simpleDateFormat.format(new Date());
-*/
+        Double value = null;
 
         jsondata = (JSONObject) jsondata.get("weatherdata");
         jsondata = (JSONObject) jsondata.get("product");
@@ -52,16 +49,30 @@ public class WeatherData {
         JSONArray array = jsondata.getJSONArray("time");
 
         jsondata = array.getJSONObject(100);
-        jsondata = (JSONObject) jsondata.get("location");
-        jsondata = (JSONObject) jsondata.get("temperature");
-        Double value = (Double) jsondata.get("value");
 
-        System.out.println(value);
+        jsondata = (JSONObject) jsondata.get("location");
+
+        if(jsondata.get("temperature") == null){
+            jsondata = (JSONObject) jsondata.get("temperature");
+            jsondata = (JSONObject) jsondata.get("weatherdata");
+            jsondata = (JSONObject) jsondata.get("product");
+            JSONArray array2 = jsondata.getJSONArray("time");
+            jsondata = array2.getJSONObject(99);
+            jsondata = (JSONObject) jsondata.get("location");
+            jsondata = (JSONObject) jsondata.get("temperature");
+            value = (Double) jsondata.get("value");
+
+        }else{
+            jsondata = (JSONObject) jsondata.get("temperature");
+            value = (Double) jsondata.get("value");
+        }
         return value.toString();
     }
 
+    public String getSymbolForTommorow(JSONObject jsondata) throws JSONException {
 
-    public String getSymbolForTommorow(JSONObject jsondata){
+        String symbol = null;
+
         jsondata = (JSONObject) jsondata.get("weatherdata");
         jsondata = (JSONObject) jsondata.get("product");
 
@@ -69,10 +80,21 @@ public class WeatherData {
 
         jsondata = array.getJSONObject(101);
         jsondata = (JSONObject) jsondata.get("location");
-        jsondata = (JSONObject) jsondata.get("symbol");
-        String symbol = (String) jsondata.get("id");
 
-        System.out.println(symbol);
+
+        if(jsondata.get("symbol") == null){
+            jsondata = (JSONObject) jsondata.get("symbol");
+            jsondata = (JSONObject) jsondata.get("weatherdata");
+            jsondata = (JSONObject) jsondata.get("product");
+            JSONArray array2 = jsondata.getJSONArray("time");
+            jsondata = array2.getJSONObject(100);
+            jsondata = (JSONObject) jsondata.get("location");
+            jsondata = (JSONObject) jsondata.get("symbol");
+            symbol = (String) jsondata.get("id");
+        }else{
+            jsondata = (JSONObject) jsondata.get("symbol");
+            symbol = (String) jsondata.get("id");
+        }
         return symbol;
     }
 

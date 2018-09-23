@@ -1,5 +1,6 @@
 package com.WeatherApp.WeatherApp;
 
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -18,7 +19,7 @@ public class HtmlController2 {
 
 
     @GetMapping
-    public String tomorrow() throws IOException {
+    public String tomorrow() throws IOException, JSONException {
         JSONObject oslo = apiConnection.getApiDataFromApiMet("59.911491", "10.757933");
         JSONObject bergen = apiConnection.getApiDataFromApiMet("60.39299", "5.32415");
         JSONObject trondheim = apiConnection.getApiDataFromApiMet("63.446827", "10.421906");

@@ -1,6 +1,7 @@
 package com.WeatherApp.WeatherApp;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 import org.json.XML;
 
@@ -18,7 +19,7 @@ public class ApiConnection {
 
     }
 
-    public JSONObject getApiDataFromApiMet(String latitude, String longitude) throws IOException {
+    public JSONObject getApiDataFromApiMet(String latitude, String longitude) throws IOException, JSONException {
         String url = "https://api.met.no/weatherapi/locationforecast/1.9/?lat=" + latitude + "&lon=" + longitude;
 
         URLConnection connection = new URL(url).openConnection();
