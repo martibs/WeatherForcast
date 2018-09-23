@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/") // Specifies the path of the website --> Can change it to declare another site.
-public class HtmlController {
+@RequestMapping("/tommorow")
+public class HtmlController2 {
 
 
     private GenerateJavascript generateJavascript = new GenerateJavascript();
     private ApiConnection apiConnection = new ApiConnection();
     private WeatherData weatherData = new WeatherData();
 
-    @GetMapping
-    public String getGreet() throws IOException {
 
+    @GetMapping
+    public String tommorow() throws IOException {
         JSONObject oslo = apiConnection.getApiDataFromApiMet("59.911491", "10.757933");
         JSONObject bergen = apiConnection.getApiDataFromApiMet("60.39299", "5.32415");
         JSONObject trondheim = apiConnection.getApiDataFromApiMet("63.446827", "10.421906");
@@ -26,23 +26,22 @@ public class HtmlController {
         JSONObject stavanger = apiConnection.getApiDataFromApiMet("58.969975", "5.733107");
 
 
-        String osloIcon = weatherData.getSymbol(oslo);
-        String bergenIcon = weatherData.getSymbol(bergen);
-        String trondheimIcon = weatherData.getSymbol(trondheim);
-        String tromsoIcon = weatherData.getSymbol(tromso);
+        String osloIcon = weatherData.getSymbolForTommorow(oslo);
+        String bergenIcon = weatherData.getSymbolForTommorow(bergen);
+        String trondheimIcon = weatherData.getSymbolForTommorow(trondheim);
+        String tromsoIcon = weatherData.getSymbolForTommorow(tromso);
         String stavangerIcon = weatherData.getSymbol(stavanger);
 
-        String osloTemp = weatherData.getTemperature(oslo);
-        String bergenTemp = weatherData.getTemperature(bergen);
-        String trondheimTemp = weatherData.getTemperature(trondheim);
-        String tromsoTemp = weatherData.getTemperature(tromso);
-        String stavangerTemp = weatherData.getTemperature(stavanger);
-
+        String osloTemp = weatherData.getTemperatureForTommorow(oslo);
+        String bergenTemp = weatherData.getTemperatureForTommorow(bergen);
+        String trondheimTemp = weatherData.getTemperatureForTommorow(trondheim);
+        String tromsoTemp = weatherData.getTemperatureForTommorow(tromso);
+        String stavangerTemp = weatherData.getTemperatureForTommorow(stavanger);
 
         String stuff = generateJavascript.map(osloIcon, stavangerIcon, bergenIcon, tromsoIcon, trondheimIcon, osloTemp, stavangerTemp, bergenTemp, tromsoTemp, trondheimTemp);
 
-
         return stuff;
     }
+
 
 }
