@@ -38,6 +38,8 @@ public class GenerateJavascript {
                         "<p>Tromsø: "+ tromsøTemp + "</p>" +
                         "<p>Trondheim: "+ trondheimTemp +
                         "</p>" +
+                        "\n" +
+                        "<a href=\"/tomorrow\">Check weather tomorrow here</a>\n" +
                         "</div>"+
 
                 "<script>\n" +
