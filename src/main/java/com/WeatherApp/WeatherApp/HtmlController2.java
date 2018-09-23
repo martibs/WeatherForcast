@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.io.IOException;
 
 @RestController
-@RequestMapping("/tommorow")
+@RequestMapping("/tomorrow")
 public class HtmlController2 {
 
 
@@ -18,7 +18,7 @@ public class HtmlController2 {
 
 
     @GetMapping
-    public String tommorow() throws IOException {
+    public String tomorrow() throws IOException {
         JSONObject oslo = apiConnection.getApiDataFromApiMet("59.911491", "10.757933");
         JSONObject bergen = apiConnection.getApiDataFromApiMet("60.39299", "5.32415");
         JSONObject trondheim = apiConnection.getApiDataFromApiMet("63.446827", "10.421906");
