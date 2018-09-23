@@ -38,13 +38,20 @@ public class WeatherData {
     }
 
     public String getTemperatureForTommorow(JSONObject jsondata){
+/*
+        Date date = new Date();
+
+        String pattern = "yyyy-MM-dd";
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(pattern);
+        String date = simpleDateFormat.format(new Date());
+*/
 
         jsondata = (JSONObject) jsondata.get("weatherdata");
         jsondata = (JSONObject) jsondata.get("product");
 
         JSONArray array = jsondata.getJSONArray("time");
 
-        jsondata = array.getJSONObject(99);
+        jsondata = array.getJSONObject(100);
         jsondata = (JSONObject) jsondata.get("location");
         jsondata = (JSONObject) jsondata.get("temperature");
         Double value = (Double) jsondata.get("value");
@@ -60,7 +67,7 @@ public class WeatherData {
 
         JSONArray array = jsondata.getJSONArray("time");
 
-        jsondata = array.getJSONObject(100);
+        jsondata = array.getJSONObject(101);
         jsondata = (JSONObject) jsondata.get("location");
         jsondata = (JSONObject) jsondata.get("symbol");
         String symbol = (String) jsondata.get("id");
