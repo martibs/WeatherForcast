@@ -9,8 +9,9 @@ public class GenerateJavascript {
                         "<style>\n" +
                         "      #temp {\n" +
                         "        height: 85%;\n" +
-                        "        width: 49%;\n" +
+                        "        width: 44%;\n" +
                         "        float: left;\n" +
+                        "        padding-left:5%;\n" +
                         "\n" +
                         "      }\n" +
                         "      #map {\n" +
@@ -27,17 +28,17 @@ public class GenerateJavascript {
                         "      }\n" +
                         "    </style>"+
                         "</head>" +
-                        "  <body>" +
+                        "  <body background=\"https://wallpaperbrowse.com/media/images/light_background-wallpaper-3840x2160.jpg\">" +
                         "  <h1>Weather Forcast</h1>" +
                         "<div id=\"map\"></div>"+
                         "<div id=\"temp\">" +
-                        "<p>Forcast for today: " + "</p>" +
-                        "<p>Oslo: "+ osloTemp + "</p>" +
-                        "<p>Stavanger: "+ stavangerTemp + "</p>" +
-                        "<p>Bergen: "+ bergenTemp + "</p>" +
-                        "<p>Tromsø: "+ tromsøTemp + "</p>" +
+                        "<h2>Forcast for today: " + "</h2>" +
+                        "<p>Oslo: "+ osloTemp + "&deg;C</p>" +
+                        "<p>Stavanger: "+ stavangerTemp + "&deg;C</p>" +
+                        "<p>Bergen: "+ bergenTemp + "&deg;C</p>" +
+                        "<p>Tromsø: "+ tromsøTemp + "&deg;C</p>" +
                         "<p>Trondheim: "+ trondheimTemp +
-                        "</p>" +
+                        "&deg;C</p>" +
                         "\n" +
                         "<a href=\"/tomorrow\">Check weather tomorrow here</a>\n" +
                         "</div>"+
